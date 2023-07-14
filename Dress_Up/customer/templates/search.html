@@ -1,0 +1,27 @@
+{%extends 'navbar.html'%}
+{%block nav%}
+<div class="row jumbotron p-4">
+    {% for i in searchoutfit %}
+      <div class="card " style="width: 18rem; margin-bottom: 70px; margin-right: 70px;" >
+        
+         <img src="{{i.image.url}}" height="200px" alt="data image" style="width:100%">
+ 
+          <h1>{{i.name}}</h1>
+          <h1>{{i.category.name}}</h1>
+
+          <p>Rs:{{i.price}}/- </p>
+          <p>
+          <a href="{% url 'addcar' i.id %}"><button>Add to Cart</button></a>
+          </p>
+    
+       
+        
+    </div>
+    
+    {% empty %}
+    <p> No product Found.</p>
+  </div>
+  {% endfor %}
+</div>
+{% comment %} {{data}} {% endcomment %}
+{%endblock nav%}

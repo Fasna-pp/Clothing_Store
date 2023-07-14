@@ -1,0 +1,62 @@
+{% extends 'navbar.html' %}
+{% block nav %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.div-gap {
+  
+  margin-bottom: 30px;
+}
+.price {
+  color: grey;
+  font-size: 10px;
+}
+
+
+ </style>
+</head>
+<body>
+{% csrf_token%}
+<h2 style="text-align:center;background-color: rgb(204, 69, 148);">YOUR OUTFITS</h2>
+
+
+  <div class="row jumbotron p-4">
+    {% for i in out %} 
+
+    <div class="card " style="width: 18rem;"  >
+        
+    <img src="{{i.image.url}}" height="200px" alt="data image" style="width:100%">
+   
+ 
+    <h3>{{i.name}}</h3>
+
+    <p>Rs/- {{i.price}} </p>
+    <!-- <p>
+      <a href="{% url 'addcar' i.id %}"><button>Add to Cart</button></a>
+    </p> -->
+
+    <a href="{% url 'drsdet' i.id %}" class="stretched-link"></a>
+    
+       
+        
+    </div>
+    
+      
+    
+    {%endfor%}
+  </div>
+
+</body>
+</html>
+
+
+{% endblock nav %}

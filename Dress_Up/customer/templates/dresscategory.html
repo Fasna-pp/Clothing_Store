@@ -1,0 +1,57 @@
+{% extends 'navbar.html' %}
+{% block nav %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.div-gap {
+  
+  margin-bottom: 30px;
+}
+.price {
+  color: grey;
+  font-size: 10px;
+}
+
+
+ </style>
+</head>
+<body>
+{% csrf_token%}
+<h2 style="text-align:center; background-color: rgb(14, 121, 209);">Categorys</h2>
+
+<div class="row jumbotron p-4">
+    <br>
+    {% for i in data %} 
+
+    <div class="card " style="width: 18rem; margin-bottom: 50px;margin-right: 50px;"  >
+        
+         
+         <img src="{{i.image.url}}" height="200px" alt="data image" style="width:100%">
+ 
+           <h1>{{i.name}}</h1>
+
+        <a href="{% url 'catpro' i.id %}" class="stretched-link"></a>
+        
+    </div>
+    <br>
+    
+      
+    
+    {%endfor%}
+    <br>
+</div> 
+
+</body>
+</html>
+
+
+{% endblock nav %}

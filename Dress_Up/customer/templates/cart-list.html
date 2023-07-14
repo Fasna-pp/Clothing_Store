@@ -1,0 +1,53 @@
+{% extends 'navbar.html' %}
+{% block nav %}
+<h1 class="text-center font-italic">My Cart</h1>
+{% if messages %}
+      {% for i in messages %}
+      {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+      <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>{{i}}</strong> 
+        </div>
+      {% endif%}
+      {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+      <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>{{i}}</strong> 
+        </div>
+      {% endif %}
+  
+      {%endfor%}
+  {% endif%}
+  <h5 class="text-secondary">Total Amount={{cartitem.total.tot}}/-</h5>
+{% for i in cartitem.items%}
+<div class="row jumbotron">
+    <div class="col">
+        <img height="250px" width="300px" src="{{i.outfit.image.url}}" alt="">
+    </div>
+    <div class="col">
+        <ul class="list-group">
+            <li class="list-group-item text-bold">
+                {{i.outfit.name}}
+            </li>
+            <li class="list-group-item">
+                {{i.outfit.price}}
+            </li>
+            <li class="list-group-item">
+                {{i.outfit.size}}
+            </li>
+            <li class="list-group-item">
+                {{i.date}}
+            </li>
+        
+
+           <li class="list-group-item">
+                <a href="{% url "check" i.id %}" class="btn btn-success" onclick="addToCart(getSelectedSize())">Place order</a>
+                <a href="{% url 'delcart' i.id %}" class=" btn btn-warning">Remove from Cart</a>
+            </li>
+       
+        </ul>
+       
+    </div>
+</div>
+{% endfor%}
+{% endblock nav %}

@@ -1,0 +1,55 @@
+{% extends 'navbar.html' %}
+{% block nav %}
+<style>
+    .radio-container {
+      margin-bottom: 10px;
+    }
+    .radio-label {
+      margin-left: 5px;
+    }
+    .radio-small {
+      transform: scale(1);
+    }
+    .radio-medium {
+      transform: scale(1);
+    }
+    .radio-large {
+      transform: scale(1);
+    }
+  </style>
+<h2 class="text-success">{{outfit.name}}</h2>
+
+<div class="row jumbotron">
+    <div class="col">
+        <img width="100%" height="400px" src="{{outfit.image.url}}" alt="product image">
+    </div>
+    <div class="col">
+        <h2>{{ outfit.name}}</h2>
+        <h4>{{outfit.category.name}}</h4>
+        <h6>{{outfit.description}}</h6>
+        <p>Rs:{{outfit.price}}/-</p>
+       <div>
+        <h6>size :</h6>
+         
+       </div>
+
+    
+      
+      <div class="radio-container">
+        <input type="radio" name="size" id="size-small" class="radio-small">
+        <label for="size-small" class="radio-label">Small</label>
+        <input type="radio" name="size" id="size-medium" class="radio-medium" >
+        <label for="size-medium" class="radio-label">Medium</label>
+        <input type="radio" name="size" id="size-large" class="radio-large">
+        <label for="size-large" class="radio-label">Large</label>
+      </div>
+      
+      
+        <p>
+            <a href="{% url 'addcar' outfit.id %}" class="btn btn-warning">Add to Cart</a>
+        </p>
+
+    </div>
+
+</div>
+{% endblock nav %}

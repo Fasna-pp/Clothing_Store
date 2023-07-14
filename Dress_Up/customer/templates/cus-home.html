@@ -1,0 +1,65 @@
+{% extends "navbar.html" %}
+{% block nav %}
+      <h1 class="bg-info text-center">Dress Up</h1>
+
+      {% if messages %}
+      {% for i in messages %}
+      {% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+      <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>{{i}}</strong> 
+        </div>
+      {% endif%}
+      {% if i.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+      <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>{{i}}</strong> 
+        </div>
+      {% endif %}
+  
+      {%endfor%}
+  {% endif%}
+
+      <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/static/images/kid.avif" height="450px" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3 class="text-dark">KIDS</h3>
+              <h6 class="text-dark">LET OUR FUTURE BE STYLISH</h6>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/im4.jpg" height="450px" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>MEN</h3>
+              <h6 class="text-dark">MAKE IT SIMPLE, BUT SIGNIFICANT</h6>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/wom.avif" height="450px" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>WOMEN</h3>
+              <h6 class="text-info">CREATE YOUR ON STYLE</h6>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+
+      </div>
+      {% endblock nav%}
+         

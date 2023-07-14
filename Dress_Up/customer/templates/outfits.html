@@ -1,0 +1,83 @@
+{% extends 'navbar.html' %}
+{% block nav %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+ .card button {
+  border: none;
+  outline: 0;
+  padding: 10px;
+  color: rgb(243, 248, 250);
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+} */
+
+.card button:hover {
+  opacity: 0.7;
+} */
+</style>
+</head>
+<body>
+  
+{%if messages%}
+{%for i in messages%} 
+{% if i.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}  
+<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong>{{i}}</strong> 
+</div>
+{%endif%}
+{%if i.level == DEFAULT_MESSAGE_LEVELS.ERROR%}  
+<div class="alert alert-danger alert-dismissible">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong>{{i}}</strong> 
+</div>
+{%endif%}
+{%endfor%}
+{%endif%}
+
+<h2 style="text-align:center;background-color:  yellow;">OUTFITS</h2>
+
+   <br>
+  <div class="row jumbotron p-4">
+    {% for i in data %} 
+    <div class="card " style="width: 18rem;"  >
+        
+    <img src="{{i.image.url}}" height="300px" alt="data image" style="width:100%">
+ 
+    <h5>{{i.name}}</h5>
+
+    <h6>Rs: {{i.price}}/-</h6>
+
+    
+   <a href="{% url 'drsdet' i.id%}" class="stretched-link"></a>
+ 
+  
+        
+    </div>
+    
+      
+    
+    {%endfor%}
+</div>
+</body>
+</html>
+{% endblock nav  %}
